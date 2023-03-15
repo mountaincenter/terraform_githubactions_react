@@ -6,6 +6,12 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./frontend:/usr/src/app
+    env_file:
+      - ./frontend/react-app/.env
+      - ./frontend/react-app/.env.prod
+    environment:
+      - ./frontend/.env
+      - ./frontend/.env.prod
     command: sh -c "yarn start"
     ports:
       - "3000:3000"
